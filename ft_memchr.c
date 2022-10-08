@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 20:42:01 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:09:22 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/05 16:31:56 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/08 13:10:38 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
+	char	*str = (char *)s;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (c == 0 && str[0] == '\0' && n != 0)
+		return ("");
+	while (i < n && str[i] != '\0')
+	{
+		if (str[i] == c)
+			return ((void *)(str + i));
 		i++;
-	return (i);
+	}
+	return (0);
 }
-/*#include <stdio.h>
-#include <unistd.h>
-int main(int argc, char **argv)
+/*#include <string.h>
+#include <stdio.h>
+int main()
 {
-	char k;
-	(void) argc;
-	k = ft_strlen(argv[1]) + '0';
-	write(1, &k, 1);
+	char a[20];
+	int c;
+	void *t;
+	strcpy(a, "dhfufh");
+	c = '9';
+	t = memchr(a, c, 20);
+	printf("%s\n", t);
+	
+	strcpy(a, "dhfufh");
+	c = '9';
+	t = ft_memchr(a, c, 20);
+	printf("%s\n", t);
 	return 0;
 }*/

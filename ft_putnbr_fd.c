@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 20:42:01 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:09:22 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/08 13:16:36 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/08 13:30:44 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	char	c;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (n == -2147483648)
+	{
+		write (fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n < 10)
+	{	
+		c = n + '0';
+		ft_putchar_fd(c, fd);
+		return ;
+	}
+	c = n % 10 + '0';
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd(c, fd);
 }
-/*#include <stdio.h>
-#include <unistd.h>
-int main(int argc, char **argv)
-{
-	char k;
-	(void) argc;
-	k = ft_strlen(argv[1]) + '0';
-	write(1, &k, 1);
-	return 0;
-}*/

@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 20:42:01 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:09:22 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/05 14:18:12 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/08 13:09:49 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memset(void *b, char c, size_t len)
 {
 	size_t	i;
+	char	*str;
 
+	str = (char *)b;
 	i = 0;
-	while (s[i] != '\0')
+	while (i < len)
+	{
+		str[i] = c;
 		i++;
-	return (i);
+	}
+	b = (void *)str;
+	return (b);
 }
-/*#include <stdio.h>
-#include <unistd.h>
-int main(int argc, char **argv)
+/*#include <string.h>
+int main()
 {
-	char k;
-	(void) argc;
-	k = ft_strlen(argv[1]) + '0';
-	write(1, &k, 1);
+	char *a;
+	strcpy(a, "");
+	void *t = ft_memset(a, '9', 5);
+	printf("%s\n", t);
+	strcpy(a, "");
+	t = memset(a, '9', 5);
+	printf("%s\n", t);
 	return 0;
 }*/

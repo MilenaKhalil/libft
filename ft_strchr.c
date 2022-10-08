@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 20:42:01 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:09:22 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/05 12:38:00 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/05 13:01:28 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *s)
+char *ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
+	char *str = (char *)s;
 
 	i = 0;
+	if (c == 0)
+		return ("");
 	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return (str + i);
 		i++;
-	return (i);
+	}
+	return (0);
 }
-/*#include <stdio.h>
-#include <unistd.h>
-int main(int argc, char **argv)
+/*#include <string.h>
+#include <stdio.h>
+int main()
 {
-	char k;
-	(void) argc;
-	k = ft_strlen(argv[1]) + '0';
-	write(1, &k, 1);
+	char a[20];
+	char c;
+	char *t;
+	strcpy(a, "figid");
+	c = 'g';
+	t = strchr(a, c);
+	printf("%s\n", t);
+	
+	strcpy(a, "figid");
+	c = 'g';
+	t = ft_strchr(a, c);
+	printf("%s\n", t);
 	return 0;
 }*/

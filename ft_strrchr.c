@@ -1,33 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 20:42:01 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:09:22 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/05 13:05:07 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/05 13:29:00 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *s)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int		i;
+	char	*out;
+	char	*str = (char *)s;
 
+	out = 0;
 	i = 0;
+	if (c == 0)
+		return ("");
 	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			out = str + i;
 		i++;
-	return (i);
+	}
+	return (out);
 }
-/*#include <stdio.h>
-#include <unistd.h>
-int main(int argc, char **argv)
+/*#include <string.h>
+#include <stdio.h>
+int main()
 {
-	char k;
-	(void) argc;
-	k = ft_strlen(argv[1]) + '0';
-	write(1, &k, 1);
+	char a[20];
+	char c;
+	char *t;
+	strcpy(a, "fslfdk");
+	c = 0;
+	t = strrchr(a, c);
+	printf("%s\n", t);
+	
+	strcpy(a, "fsfdjsk");
+	c = 0;
+	t = ft_strrchr(a, c);
+	printf("%s\n", t);
 	return 0;
 }*/
