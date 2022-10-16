@@ -13,8 +13,9 @@
 char *ft_strchr(const char *s, int c)
 {
 	int	i;
-	char *str = (char *)s;
-
+	char *str;
+    
+    str = (char *)s;
 	i = 0;
 	if (c == 0)
 		return ("");

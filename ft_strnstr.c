@@ -15,7 +15,7 @@
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
-	int		j;
+	size_t  j;
 
 	i = 0;
 	j = 0;
@@ -41,14 +41,14 @@ int main()
 	char a[20];
 	char b[20];
 	char *t;
-	strcpy(a, "qwertyui");
+	strcpy(a, "ty");
 	strcpy(b, "ty");
-	t = strnstr(a, b, 14);
+	t = strnstr(a, b, 0);
 	printf("%s\n%s\n%s\n\n", a, b, t);
 	
-	strcpy(a, "qwertyui");
+	strcpy(a, "ty");
 	strcpy(b, "ty");
-	t = ft_strnstr(a, b, 14);
+	t = ft_strnstr(a, b, 0);
 	printf("%s\n%s\n%s\n", a, b, t);
 	return 0;
 }*/

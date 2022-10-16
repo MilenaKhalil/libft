@@ -14,8 +14,9 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
 	char	*out;
-	char	*str = (char *)s;
+	char	*str;
 
+    str = (char *)s;
 	out = 0;
 	i = 0;
 	if (c == 0)
@@ -35,13 +36,13 @@ int main()
 	char a[20];
 	char c;
 	char *t;
-	strcpy(a, "fslfdk");
-	c = 0;
+	strcpy(a, "fsliifdki");
+	c = 'i';
 	t = strrchr(a, c);
 	printf("%s\n", t);
 	
-	strcpy(a, "fsfdjsk");
-	c = 0;
+	strcpy(a, "fsfdijski");
+	c = 'i';
 	t = ft_strrchr(a, c);
 	printf("%s\n", t);
 	return 0;

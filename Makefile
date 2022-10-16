@@ -1,4 +1,4 @@
-CC = gcc
+CC = gcc -c
 
 SRC = *.c
 
@@ -7,7 +7,15 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = b.out
 
 all:
-	${CC} ${CFLAGS} -o ${NAME} ${SRC}
+	${CC} ${CFLAGS} ${SRC} libft.h
+	ar r libft.a *.o
+
+fclean:
+	-rm -f *.o core *.core *.gch
+
+out:
+	./a.out
 
 clean:
-	-rm -f *.o core *.core
+	rm libft.a
+

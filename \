@@ -1,0 +1,10 @@
+require("lspconfig").clangd.setup({})
+local map = vim.keymap.set
+
+local functon lsp_maps()
+map("n", ",d", vim.lsp.buf.definition)
+map("n", ",r", vim.lsp.buf.rename)
+map("n", ",t", vim.lsp.buf.type_definition)
+map("n", ",d", vim.lsp.buf.definition)
+end
+-- require("lspconfig").sumneko_lua.setup()
