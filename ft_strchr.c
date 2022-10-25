@@ -6,16 +6,16 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 12:38:00 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/05 13:01:28 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/16 14:03:09 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	char *str;
-    
-    str = (char *)s;
+	int		i;
+	char	*str;
+
+	str = (char *)s;
 	i = 0;
 	if (c == 0)
 		return ("");

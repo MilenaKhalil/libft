@@ -1,49 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memchr.c                                        :+:    :+:            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 16:31:56 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/16 14:00:51 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/16 16:42:25 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/16 17:08:16 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+/*size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
 	size_t	i;
-	char	*str;
+	size_t	j;
 
-	str = (char *)s;
 	i = 0;
-	if (c == 0 && str[0] == '\0' && n != 0)
-		return ("");
-	while (i < n && str[i] != '\0')
+	while (src[j] != 0)
+		j++;
+	while (i < dstsize && src[i] != 0)
 	{
-		if (str[i] == c)
-			return ((void *)(str + i));
+		dst[i] = src[i];
 		i++;
 	}
-	return (0);
-}
+	while (i <= dstsize)
+	{
+		dst[i] = 0;
+		i++;
+	}
+	return (j);
+}*/
 /*#include <string.h>
-#include <stdio.h>
 int main()
 {
-	char a[20];
-	int c;
-	void *t;
-	strcpy(a, "dhfufh");
-	c = '9';
-	t = memchr(a, c, 20);
-	printf("%s\n", t);
-	
-	strcpy(a, "dhfufh");
-	c = '9';
-	t = ft_memchr(a, c, 20);
-	printf("%s\n", t);
-	return 0;
+	char *a = "qwertyui", *a1 = "qwertyui";
+	char *b = "123000", *b1 = "123000";
+	int i, i1, n = 5;
+	i = strlcpy(a, b, 0);
+	//i1 = ft_strlcpy(a1, b1, n);
+	printf("or: %s %s %d\nmy: %s %s %d\n", a, b, i, a1, b1, i1);
+	return (0);
 }*/

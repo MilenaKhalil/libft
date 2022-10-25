@@ -1,34 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_memmove.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: mikhalil <marvin@codam.nl>                   +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/16 13:39:56 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/16 17:09:04 by mikhalil      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void    *ft_memmove(void *str1, const void *str2, size_t n)
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-    size_t  i;
-    char	*s1;
-	char	*s2;
+	char	*d;
+	char	*s;
 
-	s1 = (char *)str2;
-	s2 = (char *)str1;
-	i = 0;
-	while (i < n)
+	d = (char *)str1;
+	s = (char *)str2;
+	if (d == s)
+		return (str1);
+	if (s < d)
 	{
-		s2[i] = s1[i];
-		i++;
+		while (n--)
+			*(d + n) = *(s + n);
+		return (str1);
 	}
-	return ((void *)s2);
+	while (n--)
+		*d++ = *s++;
+	return (str1);
 }
-/*#include <string.h>
-int main ()
+/*int main ()
 {
-   char dest[] = "", dest1[] = "";
-   const char src[]  = "", src1[] = "";
+   char src[]  = "lorem ipsum dolor sit amet", src1[] = "lorem ipsum dolor sit amet";
+   char *dest = src + 1, dest1 = src1 + 1;
+
 
    printf("Before ft_memmove dest = %s, src = %s\n", dest, src);
-   ft_memmove(dest, src, 1);
+   ft_memmove(dest, src, 8);
+   //dest[3] = '*';
    printf("After ft_memmove dest = %s, src = %s\n", dest, src);
    
-   printf("\nBefore memmove dest = %s, src = %s\n", dest1, src1);
-   memmove(dest1, src1, 1);
-   printf("After memmove dest = %s, src = %s\n", dest1, src1);
+   //printf("\nBefore memmove dest = %s, src = %s\n", dest1, src1);
+   //memmove(dest1, src1, 1);
+   //printf("After memmove dest = %s, src = %s\n", dest1, src1);
 
-   return(0);
+   return (0);
 }*/

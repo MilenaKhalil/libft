@@ -1,49 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrchr.c                                       :+:    :+:            */
+/*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 13:05:07 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/16 14:06:40 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/16 14:32:37 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/16 14:47:37 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
+	int		j;
 	char	*out;
-	char	*str;
 
-	str = (char *)s;
-	out = 0;
+	out = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	i = 0;
-	if (c == 0)
-		return ("");
-	while (s[i] != '\0')
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		if (s[i] == c)
-			out = str + i;
+		out[i] = s1[i];
 		i++;
 	}
+	while (s2[j] != '\0')
+	{
+		out[i + j] = s2[j];
+		j++;
+	}
+	out[i + j] = '\0';
 	return (out);
 }
 /*#include <string.h>
-#include <stdio.h>
 int main()
 {
-	char a[20];
-	char c;
-	char *t;
-	strcpy(a, "fsliifdki");
-	c = 'i';
-	t = strrchr(a, c);
-	printf("%s\n", t);
-	
-	strcpy(a, "fsfdijski");
-	c = 'i';
-	t = ft_strrchr(a, c);
-	printf("%s\n", t);
+	char const	*a = "";
+	char const	*b = "";
+
+	printf("%s\n", strjoin(a, b));
 	return 0;
 }*/

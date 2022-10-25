@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:27:54 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:07:49 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/16 14:06:12 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
-	size_t  j;
+	size_t	j;
 
 	i = 0;
 	j = 0;

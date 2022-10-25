@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:15:44 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:10:23 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/16 14:01:47 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			break ;
 		j++;
 	}
-	return (i);	
+	return (i);
 }
 /*#include <string.h>
 #include <stdio.h>
