@@ -6,13 +6,14 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 19:54:19 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/16 17:09:28 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/25 18:29:21 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 #ifndef LIBFT_H
 #define LIBFT_H
@@ -34,5 +35,6 @@ int		ft_atoi(const char *str);
 size_t	ft_strlen(const char *s);
 
 char	*ft_strdup(const char *s);
+char	*ft_itoa(int n);
 
 #endif
