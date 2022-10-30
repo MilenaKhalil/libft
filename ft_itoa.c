@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 15:42:27 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/25 18:39:56 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/29 18:53:01 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,31 @@ char	*check(char *out, size_t *i, int *n)
 	}
 	if (*n == INT_MIN)
 	{
-		out = ft_itoa(*n + 1);
-		out[10]++;
+		ft_memcpy(out, "-2147483648", 12);
 		*n = 0;
 		*i = 12;
 	}
 	return (out);
+}
+
+int	siize(int n)
+{
+	int	i;
+
+	i = 1;
+	if (n == 0)
+		return (2);
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
 
 char	*ft_itoa(int n)
@@ -54,7 +73,7 @@ char	*ft_itoa(int n)
 	size_t	i;
 
 	i = 0;
-	out = malloc(sizeof(char) * 12);
+	out = malloc(sizeof(char) * siize(n));
 	if (!out)
 		return (0);
 	out = check(out, &i, &n);
@@ -70,14 +89,16 @@ char	*ft_itoa(int n)
 		n /= 10;
 	}
 	if (i != 12)
+	{
 		strrev(out, i);
-	out[i] = '\0';
+		out[i] = '\0';
+	}
 	return (out);
 }
 /*int main()
 {
-	int	n = -1010;
+	int	n = -2147483648;
 	char	*t = ft_itoa(n);
-	printf("\nn = %d, out = %s\n\n", n, t);
+	printf("\nn = %d, out = %s, size = %d\n", n, t, siize(n));
 	return 0;
 }*/

@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 14:32:37 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/16 14:47:37 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/28 15:44:32 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*out;
 
 	out = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!out)
+		return (0);
 	i = 0;
 	j = 0;
 	while (s1[i] != '\0')

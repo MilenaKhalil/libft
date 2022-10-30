@@ -6,29 +6,26 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 17:26:34 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:06:55 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/28 16:49:09 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *restrict dest, char *restrict src, size_t size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (i + j < size - 1 && src[j] != '\0')
+	i = ft_strlen(dest);
+	while (i + j + 1 < size && src[j] != '\0')
 	{
 		dest[i + j] = src[j];
 		j++;
 	}
 	dest[i + j] = '\0';
-	while (src[j] != '\0')
-		j++;
+	j = ft_strlen(src);
 	if (i > size)
 		return (j + size);
 	return (i + j);

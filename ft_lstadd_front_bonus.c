@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstadd_front.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/08 13:34:26 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/27 12:45:15 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/30 13:51:46 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/30 16:28:11 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	ft_putchar_fd('a', 1);
-	return (0);
+	if (!lst || !new)
+		return ;
+	new->next = (*lst)->next;
+	(*lst)->next = new;
 }

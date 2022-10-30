@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstnew.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/08 13:34:26 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/27 12:45:15 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/30 13:38:14 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/30 16:26:38 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+t_list	*ft_lstnew(void *content)
 {
-	ft_putchar_fd('a', 1);
-	return (0);
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	new->next = 0;
+	new->content = content;
+	return (new);
 }
+/*int main()
+{
+	struct s_list *test;
+	void	k;
+	void	*content = &k;
+
+	test = ft_lstnew(content);
+	printf("test->next = %s, test->content = %s\n", test->next, test->content);
+}*/

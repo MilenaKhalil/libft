@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_lstlast_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/08 13:34:26 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/27 12:45:15 by mikhalil      ########   odam.nl         */
+/*   Created: 2022/10/30 16:14:09 by mikhalil      #+#    #+#                 */
+/*   Updated: 2022/10/30 16:14:50 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	ft_putchar_fd('a', 1);
-	return (0);
+
 }

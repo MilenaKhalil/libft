@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 17:25:22 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/25 15:40:37 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/30 13:16:38 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,35 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t	i;
+	size_t	j;
+	size_t	k;
 	char	*out;
-	int		i;
-	int		j;
-	int		k;
 
-	out = malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	i = 0;
+	k = ft_strlen(s1);
+	while (ft_strchr(set, s1[i]) && s1[i])
+		i++;
+	while (ft_strchr(set, s1[k]) && k)
+		k--;
+	if (i > k)
+		k = i - 1;
+	out = malloc(sizeof(char) * (k - i + 2));
 	if (!out)
 		return (0);
-	i = 0;
-	j = 0;
-	while (s1[i++] != 0)
+	j = i;
+	while (i <= k)
 	{
-		out[j++] = s1[i - 1];
-		k = 0;
-		while (set[k++] != 0)
-		{
-			if (set[k - 1] == out[j - 1])
-			{
-				j--;
-				break ;
-			}
-		}
+		out[i - j] = s1[i];
+		i++;
 	}
-	out[j] = '\0';
+	out[i - j] = '\0';
 	return (out);
 }
 /*int main()
 {
-	char const *a = "qweiop";
-	char const *b = "poswgiggqgeyr";
-	printf("s1 = %s, set = %s, out = %s\n", a, b, ft_strtrim(a, b));
+	char const *a = "     hgsdj     ";
+	char const *b = "sdjks ";
+	printf("out = %s\n", ft_strtrim(a, b));
 	return 0;
 }*/

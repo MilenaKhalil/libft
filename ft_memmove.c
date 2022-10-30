@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 13:39:56 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/16 17:09:04 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/10/27 13:41:52 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,3 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 		*d++ = *s++;
 	return (str1);
 }
-/*int main ()
-{
-   char src[]  = "lorem ipsum dolor sit amet", src1[] = "lorem ipsum dolor sit amet";
-   char *dest = src + 1, dest1 = src1 + 1;
-
-
-   printf("Before ft_memmove dest = %s, src = %s\n", dest, src);
-   ft_memmove(dest, src, 8);
-   //dest[3] = '*';
-   printf("After ft_memmove dest = %s, src = %s\n", dest, src);
-   
-   //printf("\nBefore memmove dest = %s, src = %s\n", dest1, src1);
-   //memmove(dest1, src1, 1);
-   //printf("After memmove dest = %s, src = %s\n", dest1, src1);
-
-   return (0);
-}*/
