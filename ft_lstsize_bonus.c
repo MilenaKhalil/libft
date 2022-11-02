@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/30 16:09:48 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/30 16:12:48 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/11/01 16:25:58 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_lstsize(t_list *lst)
 	k = lst;
 	while (k != 0)
 	{
-		k = k -> next;
+		k = k->next;
 		i++;
 	}
 	return (i);

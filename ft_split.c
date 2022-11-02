@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 18:40:14 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/26 14:53:14 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/11/01 13:57:52 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	num_words(char const *s, char c)
 
 	i = 0;
 	num = 0;
-	while (s[i] == c)
+	while (s[i] == c && s[i] != '\0')
 		i++;
+	if (s[i] == '\0')
+		return (0);
 	while (1)
 	{
 		if (s[i] == c || s[i] == '\0')
@@ -61,10 +63,15 @@ void	str_cpy(char const *src, char *dest, char c)
 	dest[i] = '\0';
 }
 
-void	ink_del(char const *str, int *j, char c)
+char	**mem_c(char **t, int i)
 {
-	while (str[*j] == c)
-		*j += 1;
+	while (i >= 0)
+	{
+		free(t[i]);
+		i--;
+	}
+	free(t);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -80,27 +87,25 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (i < num_words(s, c))
 	{
-		ink_del(s, &j, c);
+		while (s[j] == c)
+			j += 1;
 		out[i] = malloc(sizeof(char) * (slen(s + j, c) + 1));
 		if (!out[i])
-			return (0);
+			return (mem_c(out, i));
 		str_cpy(s + j, out[i], c);
-		printf("i = %d, out[i] = %s\n", i, out[i]);
 		j += slen(s + j, c) + 1;
 		i++;
 	}
 	out[i] = 0;
-	printf("i = %d, out[i] = %s\n", i, out[i]);
-	return (0);
+	return (out);
 }
-/*int main()                   // why free?
+/*int main()       
 {
 	char **t;
-	//char const *t;
-	char const *str = "   jfkd u euu          fhhhj        fhj";
-	//t = str + 12;
-	t = ft_split(str, ' ');
-	//printf("%s\n", t);
-	//printf("size = %d, str = %s\n", slen((char *)t, 'g'), t);
+	char c = '\0';
+	char const *str = "\0jj\0jjjj";
+	t = ft_split(str, c);
+	for (int i = 0; i <= num_words(str, c); i++)
+		printf("%s\n", t[i]);
 	return 0;
 }*/

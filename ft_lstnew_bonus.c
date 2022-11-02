@@ -6,7 +6,7 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/30 13:38:14 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/30 16:26:38 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/11/01 15:55:03 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstnew(void *content)
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
+	if (!new)
+		return (0);
 	new->next = 0;
 	new->content = content;
 	return (new);

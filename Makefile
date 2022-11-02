@@ -6,7 +6,7 @@
 #    By: mikhalil <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/30 15:47:49 by mikhalil      #+#    #+#                  #
-#    Updated: 2022/10/30 16:32:02 by mikhalil      ########   odam.nl          #
+#    Updated: 2022/11/02 13:59:32 by mikhalil      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,13 +47,23 @@ SRC = ft_memcmp.c \
 
 SRC_BONUS = ft_lstadd_front_bonus.c \
 			ft_lstnew_bonus.c \
-			ft_lstsize_bonus.c
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c
 
-ifdef WITH_BONUS
-OBJ = $(SRC:.c=.o) $(SRC_BONUS:.c=.o)
-else
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+
+#ifdef WITH_BONUS
+#	OBJ = $(SRC:.c=.o) $(SRC_BONUS:.c=.o)
+#else
+
 OBJ = $(SRC:.c=.o)
-endif
+
+#endif
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -62,19 +72,20 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -crus $(NAME) $(OBJ)
+	ar -rc $(NAME) $(OBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
 
-bonus:
-	$(MAKE) WITH_BONUS=1 all
+bonus: $(OBJ) $(OBJ_BONUS)
+	ar -rc $(NAME) $(OBJ) $(OBJ_BONUS)
+	#$(MAKE) WITH_BONUS=1 all
 
 re: fclean all
 

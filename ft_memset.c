@@ -6,17 +6,19 @@
 /*   By: mikhalil <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 14:18:12 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/10/08 13:09:49 by mikhalil      ########   odam.nl         */
+/*   Updated: 2022/11/02 13:23:58 by mikhalil      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, char c, size_t len)
+void	*ft_memset(void *b, int a, size_t len)
 {
 	size_t	i;
 	char	*str;
+	char	c;
 
+	c = (char)a;
 	str = (char *)b;
 	i = 0;
 	while (i < len)
