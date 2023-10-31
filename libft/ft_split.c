@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_split.c                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mikhalil <marvin@codam.nl>                   +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/25 18:40:14 by mikhalil      #+#    #+#                 */
-/*   Updated: 2022/11/01 13:57:52 by mikhalil      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: milena <milena@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/25 18:40:14 by mikhalil          #+#    #+#             */
+/*   Updated: 2023/10/27 15:26:56 by milena           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,3 @@ char	**ft_split(char const *s, char c)
 	out[i] = 0;
 	return (out);
 }
-/*int main()       
-{
-	char **t;
-	char c = '\0';
-	char const *str = "\0jj\0jjjj";
-	t = ft_split(str, c);
-	for (int i = 0; i <= num_words(str, c); i++)
-		printf("%s\n", t[i]);
-	return 0;
-}*/
